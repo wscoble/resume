@@ -1,0 +1,99 @@
+name: Build and Release Resume
+
+on:
+  push:
+    paths:
+      - Resume/resume.yaml
+      - Resume/resume.j2
+
+env:
+  RESUME_NAME: Scott\ Scoble\ Resume
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Resume
+        uses: actions/checkout@v3
+        with:
+          sparse-checkout: Resume
+
+      - uses: cachix/install-nix-action@v22
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Create LaTeX resume from data and template
+        uses: workflow/nix-shell-action@v3
+        with:
+          packages: j2cli
+          script: |
+            j2 resume.j2 resume.yaml -o resume.tex
+      
+      - name: LaTeX to PDF
+        uses: workflow/nix-shell-action@v3
+        with:
+          packages: texlive.combined.scheme-small
+          script: |
+            pdflatex resume.tex 
+            mv resume.pdf $RESUME_NAME.pdf
+
+      - name: LaTeX to DOCX
+        uses: workflow/nix-shell-action@v3
+        with:
+          packages: pandoc
+          script: |
+            pandoc -s resume.tex -o $RESUME_NAME.docx
+
+      - name: Tag commit for release
+        id: version_increment
+        uses: workflow/nix-shell-action@v3
+        with:
+          packages: yq,coreutils
+          script: |
+            # Get the hash of the experience section in the current commit and the previous one
+            CURRENT_HASH=$(yq e '.experience' Resume/resume.yaml | sha256sum)
+            PREVIOUS_HASH=$(git show HEAD~1:Resume/resume.yaml | yq e '.experience' - | sha256sum)
+
+            # Get the size of the experience list in the current commit and the previous one
+            CURRENT_SIZE=$(yq e '.experience | length' Resume/resume.yaml)
+            PREVIOUS_SIZE=$(git show HEAD~1:Resume/resume.yaml | yq e '.experience | length' -)
+
+            # Check the sizes and hashes to determine the version increment
+            if [ "$CURRENT_SIZE" -ne "$PREVIOUS_SIZE" ]; then
+              # If the size of the experience list has changed, increment the major version
+              echo "increment=major" >> $GITHUB_OUTPUT
+            elif [ "$CURRENT_HASH" != "$PREVIOUS_HASH" ]; then
+              # If the hash of the experience section has changed, increment the minor version
+              echo "increment=minor" >> $GITHUB_OUTPUT
+            else
+              # Otherwise, increment the patch version
+              echo "increment=patch" >> $GITHUB_OUTPUT
+            fi
+
+      - name: Get current version
+        id: get_version
+        run: echo "version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+            
+      - name: Increment version
+        id: increment_version
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const semver = require('semver')
+            const version = '${{ steps.get_version.outputs.version }}'
+            const increment = '${{ steps.version_increment.outputs.increment }}'
+            return semver.inc(version, increment)
+
+      - name: Tag commit for release
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag "${{ steps.increment_version.outputs.result }}"
+
+      - name: Release artifacts
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            $RESUME_NAME.pdf
+            $RESUME_NAME.docx

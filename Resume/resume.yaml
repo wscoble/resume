@@ -1,0 +1,98 @@
+Absolutely, here's the full YAML with placeholders for the highlights:
+
+```yaml
+name: Scott Scoble
+location: Henderson, Nevada, United States
+contact:
+  email: punkdgeek@gmail.com
+  linkedin: www.linkedin.com/in/scott-scoble
+top_skills:
+  - Kubernetes
+  - Flask
+  - ZeroMQ
+summary: Greasing the wheels of development for over a decade through QA, CI/CD, DevOps, and Platform Engineering. Devout follower of Christ.
+experience:
+  - company: b.well Connected Health
+    title: Cloud Infrastructure Engineer
+    start_date: December 2021
+    end_date: Present
+    duration: 1 year 8 months
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: findhelp
+    title: Principal Software Engineer
+    start_date: July 2021
+    end_date: December 2021
+    duration: 6 months
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: JBS Custom Software Solutions
+    title: Senior Software Developer
+    start_date: September 2020
+    end_date: December 2021
+    duration: 1 year 4 months
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: Surge – a Catalyte company
+    title: Senior Software Developer
+    start_date: July 2015
+    end_date: June 2020
+    duration: 5 years
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: Barclaycard
+    title: Software Developer, AVP
+    start_date: May 2015
+    end_date: June 2015
+    duration: 2 months
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: Raster Media
+    title: Lead Developer
+    start_date: May 2014
+    end_date: May 2015
+    duration: 1 year 1 month
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: PartnerWeekly, L.L.C.
+    title: QA Manager
+    start_date: April 2012
+    end_date: April 2014
+    duration: 2 years 1 month
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: DataX,Ltd.
+    title: Test Engineer
+    start_date: August 2011
+    end_date: April 2012
+    duration: 9 months
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+  - company: InsureMonkey
+    title: Lead Developer
+    start_date: October 2009
+    end_date: June 2011
+    duration: 1 year 9 months
+    highlights:
+      - Highlight 1
+      - Highlight 2
+      - Highlight 3
+```
+
+You can replace "Highlight 1", "Highlight 2", and "Highlight 3" with your actual highlights for each job.
