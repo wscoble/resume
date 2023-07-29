@@ -5,6 +5,7 @@ on:
     paths:
       - Resume/resume.yaml
       - Resume/resume.j2
+      - .github/workflows/generate_resume.yml
 
 env:
   RESUME_NAME: Scott\ Scoble\ Resume
