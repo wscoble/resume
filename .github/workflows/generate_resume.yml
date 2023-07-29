@@ -44,7 +44,9 @@ jobs:
         with:
           packages: j2cli
           script: |
+            pushd Resume
             j2 resume.j2 resume.yaml -o resume.tex
+            popd
       
       - name: LaTeX to PDF
         uses: workflow/nix-shell-action@v3
@@ -53,8 +55,10 @@ jobs:
         with:
           packages: texlive.combined.scheme-small
           script: |
-            pdflatex resume.tex 
+            pushd Resume
+            pdflatex resume.tex
             mv resume.pdf $RESUME_NAME.pdf
+            popd
 
       - name: LaTeX to DOCX
         uses: workflow/nix-shell-action@v3
@@ -113,5 +117,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            $RESUME_NAME.pdf
-            $RESUME_NAME.docx
+            Resume/$RESUME_NAME.pdf
+            Resume/$RESUME_NAME.docx
