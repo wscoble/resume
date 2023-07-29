@@ -17,53 +17,20 @@ jobs:
     steps:
       - name: Checkout Resume
         uses: actions/checkout@v3
-        with:
-          sparse-checkout: Resume
-
       - uses: cachix/install-nix-action@v22
+      - uses: cachix/cachix-action@v12
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          name: devenv
+      - name: Install devenv.sh
+        run: nix profile install tarball+https://install.devenv.sh/latest
+        shell: sh
 
-      - name: Fetch and unzip CTAN dependencies
-        uses: workflow/nix-shell-action@v3
-        with:
-          packages: wget,unzip
-          script: |
-            rm -fr .texmf
-            mkdir -p .texmf
-            pushd .texmf
-            for p in macros/latex/contrib/enumitem.zip fonts/roboto.zip; do
-              curl -sL https://mirrors.ctan.org/$p > package.zip
-              unzip package.zip
-              rm package.zip
-            done
-            popd
-
-      - name: Create LaTeX resume from data and template
-        uses: workflow/nix-shell-action@v3
-        with:
-          packages: j2cli
-          script: |
-            pushd Resume
-            j2 resume.j2 resume.yaml -o resume.tex
-            popd
-      
-      - name: LaTeX to PDF
-        uses: workflow/nix-shell-action@v3
-        with:
-          packages: texlive.combined.scheme-small
-          script: |
-            pushd Resume
-            TEXINPUTS="./texmf//:" pdflatex resume.tex
-            mv resume.pdf $RESUME_NAME.pdf
-            popd
-
-      - name: LaTeX to DOCX
-        uses: workflow/nix-shell-action@v3
-        with:
-          packages: pandoc
-          script: |
-            pandoc -s resume.tex -o $RESUME_NAME.docx
+      - run: devenv shell install-ctan-dependencies
+      - run: |
+          devenv shell build-resume
+          pushd Resume
+          mv resume.pdf $RESUME_NAME.pdf
+          mv resume.docx $RESUME_NAME.docx
 
       - name: Tag commit for release
         id: version_increment

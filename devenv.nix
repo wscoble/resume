@@ -18,6 +18,20 @@
 
   # https://devenv.sh/scripts/
   scripts = {
+    install-ctan-dependencies.exec = ''
+      mkdir -p $DEVENV_ROOT/Resume/.texmf
+      pushd $DEVENV_ROOT/Resume/.texmf
+      if [[ ! -d enumitem ]]; then
+        wget https://mirrors.ctan.org/macros/latex/contrib/enumitem.zip
+        unzip enumitem.zip
+      fi
+      if [[ ! -d roboto ]]; then
+        wget https://mirrors.ctan.org/fonts/roboto.zip
+        unzip roboto.zip
+      fi
+      popd
+    '';
+    
     build-resume.exec = ''
       pushd $DEVENV_ROOT/Resume
       j2 resume.j2 resume.yaml -o resume.tex && \
