@@ -31,8 +31,8 @@ jobs:
             mkdir -p .texmf
             pushd .texmf
             for p in enumitem roboto; do
-              wget https://mirrors.ctan.org/macros/latex/contrib/$d.zip
-              unzip $d.zip
+              wget https://mirrors.ctan.org/macros/latex/contrib/$p.zip
+              unzip $p.zip
             done
             popd
 
