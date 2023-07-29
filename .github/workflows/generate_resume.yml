@@ -29,8 +29,8 @@ jobs:
       - run: |
           devenv shell build-resume
           pushd Resume
-          mv resume.pdf $RESUME_NAME.pdf
-          mv resume.docx $RESUME_NAME.docx
+          mv resume.pdf "$RESUME_NAME".pdf
+          mv resume.docx "$RESUME_NAME".docx
           popd
 
       - name: Tag commit for release
@@ -83,5 +83,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            Resume/$RESUME_NAME.pdf
-            Resume/$RESUME_NAME.docx
+            "Resume/$RESUME_NAME.pdf"
+            "Resume/$RESUME_NAME.docx"
