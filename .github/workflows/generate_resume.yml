@@ -50,13 +50,11 @@ jobs:
       
       - name: LaTeX to PDF
         uses: workflow/nix-shell-action@v3
-        env:
-          TEXINPUTS: "./.texmf//:"
         with:
           packages: texlive.combined.scheme-small
           script: |
             pushd Resume
-            pdflatex resume.tex
+            TEXINPUTS="./texmf//:" pdflatex resume.tex
             mv resume.pdf $RESUME_NAME.pdf
             popd
 
