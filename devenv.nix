@@ -3,6 +3,7 @@
 {
   # https://devenv.sh/basics/
   # env.GREET = "devenv";
+  env.TEXINPUTS = "./.texmf//:";
 
   # https://devenv.sh/packages/
   packages = with pkgs; [
@@ -10,7 +11,8 @@
     gh
     git
     j2cli
-    texlive.combined.scheme-small
+    pandoc
+    texlive.combined.scheme-minimal
     yq
   ];
 
@@ -18,8 +20,9 @@
   scripts = {
     build-resume.exec = ''
       pushd $DEVENV_ROOT/Resume
-      j2 resume.j2 resume.yaml -o resume.tex
-      pdflatex resume.tex
+      j2 resume.j2 resume.yaml -o resume.tex && \
+      pdflatex resume.tex && \
+      # xelatex resume.tex && \
       pandoc -s resume.tex -o resume.docx 
       popd
     '';

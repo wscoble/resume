@@ -23,6 +23,19 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-unstable
 
+      - name: Fetch and unzip CTAN dependencies
+        uses: workflow/nix-shell-action@v3
+        with:
+          packages: wget,unzip
+          script: |
+            mkdir -p .texmf
+            pushd .texmf
+            for p in enumitem roboto; do
+              wget https://mirrors.ctan.org/macros/latex/contrib/$d.zip
+              unzip $d.zip
+            done
+            popd
+
       - name: Create LaTeX resume from data and template
         uses: workflow/nix-shell-action@v3
         with:
@@ -32,6 +45,8 @@ jobs:
       
       - name: LaTeX to PDF
         uses: workflow/nix-shell-action@v3
+        env:
+          TEXINPUTS: "./.texmf//:"
         with:
           packages: texlive.combined.scheme-small
           script: |

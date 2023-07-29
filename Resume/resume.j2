@@ -1,0 +1,49 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+\usepackage{enumitem}
+\usepackage[sfdefault]{roboto} % Set font to Roboto
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\robotoslab
+\begin{center}
+    {\Large \textbf{ {{- name -}} }}
+\end{center}
+
+\roboto
+
+\begin{flushleft}
+    Email: {{- contact.email -}}
+    \\
+    LinkedIn: \texttt{ {{- contact.linkedin -}} }
+\end{flushleft}
+
+\section*{Skills}
+\begin{itemize}[noitemsep,topsep=0pt]
+    {% for skill in top_skills %}
+    \item { {{- skill -}} }
+    {% endfor %}
+\end{itemize}
+
+\section*{Summary}
+{ {{- summary -}} }
+
+\section*{Experience}
+{% for job in experience %}
+\subsection*{ {{- job.title }} at {{ job.company -}} }
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Position: {{ job.title }}
+    \item Duration: {{ job.start_date }} - {{ job.end_date }}
+    \item Description: {{ job.summary }}
+    \item Highlights:
+    \begin{itemize}[noitemsep,topsep=0pt]
+        {% for highlight in job.highlights %}
+        \item {{ highlight }}
+        {% endfor %}
+    \end{itemize}
+\end{itemize}
+{% endfor %}
+
+\end{document}
