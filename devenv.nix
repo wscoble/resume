@@ -85,5 +85,11 @@
         rm -fr $d
       done
     '';
+
+    ci.exec = ''
+      clean
+      install-ctan-dependencies
+      build-resume
+    '';
   };
 }
