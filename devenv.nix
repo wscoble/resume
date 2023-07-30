@@ -7,7 +7,7 @@
     git
     j2cli
     pandoc
-    texlive.combined.scheme-minimal
+    texlive.combined.scheme-small
     yq
   ];
 
@@ -22,6 +22,10 @@
       if [[ ! -d roboto ]]; then
         wget https://mirrors.ctan.org/fonts/roboto.zip
         unzip roboto.zip
+      fi
+      if [[ ! -d fontaxes ]]; then
+        wget https://mirrors.ctan.org/macros/latex/contrib/fontaxes.zip
+        unzip fontaxes
       fi
       popd
     '';
