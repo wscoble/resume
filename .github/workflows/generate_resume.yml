@@ -89,7 +89,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git tag "${{ steps.increment_version.outputs.result }}"
+          git tag "${{ steps.increment_version.outputs.new_version }}"
 
       - name: Release artifacts
         uses: softprops/action-gh-release@v1
