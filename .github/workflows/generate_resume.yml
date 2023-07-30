@@ -31,9 +31,7 @@ jobs:
 
       - run: devenv shell ci
       - name: Rename outputs
-        run: |
-          mv resume.pdf "$RESUME_NAME".pdf
-          mv resume.docx "$RESUME_NAME".docx
+        run: mv resume.pdf "$RESUME_NAME".pdf
 
       - name: Get next tag
         id: tag
@@ -43,4 +41,4 @@ jobs:
         run: |
           git tag ${{ steps.tag.outputs.next }}
           git push --tags
-          gh release create ${{ steps.tag.outputs.next }} --generate-notes "./$RESUME_NAME.*"
+          gh release create ${{ steps.tag.outputs.next }} --generate-notes "$RESUME_NAME.*"

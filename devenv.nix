@@ -6,7 +6,6 @@
     gh
     git
     j2cli
-    pandoc
     texlive.combined.scheme-small
     yq
   ];
@@ -40,8 +39,7 @@
     
     build-resume.exec = ''
       j2 resume.j2 resume.yaml -o resume.tex && \
-      TEXINPUTS=".texmf//:" xelatex resume.tex && \
-      pandoc -s resume.tex -o resume.docx 
+      TEXINPUTS=".texmf//:" xelatex resume.tex
     '';
 
     next-tag.exec = ''
