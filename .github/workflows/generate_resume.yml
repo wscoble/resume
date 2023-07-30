@@ -39,6 +39,8 @@ jobs:
 
       - name: Release artifacts
         run: |
+          ls -l *pdf
           git tag ${{ steps.tag.outputs.next }}
           git push --tags
-          gh release create ${{ steps.tag.outputs.next }} --generate-notes "$RESUME_NAME.*"
+          gh release create ${{ steps.tag.outputs.next }} --generate-notes "$RESUME_NAME.pdf"
+          
