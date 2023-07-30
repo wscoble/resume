@@ -10,6 +10,7 @@ on:
 
 env:
   RESUME_NAME: Scott\ Scoble\ Resume
+  GH_TOKEN: ${{ github.token }}
 
 jobs:
   build:
