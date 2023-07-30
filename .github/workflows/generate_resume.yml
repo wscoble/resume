@@ -2,7 +2,8 @@ name: Build and Release Resume
 
 on:
   push:
-    tags-ignore: "*"
+    tags-ignore: 
+      - "*"
     paths:
       - Resume/resume.yaml
       - Resume/resume.j2
