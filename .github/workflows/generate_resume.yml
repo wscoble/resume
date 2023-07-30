@@ -3,8 +3,8 @@ name: Build and Release Resume
 on:
   push:
     paths:
-      - Resume/resume.yaml
-      - Resume/resume.j2
+      - resume.yaml
+      - resume.j2
       - .github/workflows/generate_resume.yml
       - devenv.nix
 
@@ -47,12 +47,12 @@ jobs:
           packages: yq,coreutils
           script: |
             # Get the hash of the experience section in the current commit and the previous one
-            CURRENT_HASH=$(yq '.experience' Resume/resume.yaml | sha256sum | awk '{print $1}')
-            PREVIOUS_HASH=$(git show ${{ steps.get_version.outputs.version }}:Resume/resume.yaml | yq '.experience' | sha256sum | awk '{print $1}')
+            CURRENT_HASH=$(yq '.experience' resume.yaml | sha256sum | awk '{print $1}')
+            PREVIOUS_HASH=$(git show ${{ steps.get_version.outputs.version }}:resume.yaml | yq '.experience' | sha256sum | awk '{print $1}')
             
             # Get the size of the experience list in the current commit and the previous one
-            CURRENT_SIZE=$(yq '.experience | length' Resume/resume.yaml)
-            PREVIOUS_SIZE=$(git show ${{ steps.get_version.outputs.version }}:Resume/resume.yaml | yq '.experience | length')
+            CURRENT_SIZE=$(yq '.experience | length' resume.yaml)
+            PREVIOUS_SIZE=$(git show ${{ steps.get_version.outputs.version }}:resume.yaml | yq '.experience | length')
             
             # Check the sizes and hashes to determine the version increment
             if [ "$CURRENT_SIZE" -ne "$PREVIOUS_SIZE" ]; then
@@ -86,15 +86,16 @@ jobs:
           
 
       - name: Tag commit for release
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git tag "${{ steps.increment_version.outputs.new_version }}"
-          git push --tags
+        uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: "${{ steps.increment_version.outputs.new_version }}"
+          tag_exists_error: false
+          message: "Latest release"
 
       - name: Release artifacts
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            "Resume/$RESUME_NAME.pdf"
-            "Resume/$RESUME_NAME.docx"
+            "$RESUME_NAME.pdf"
+            "$RESUME_NAME.docx"
