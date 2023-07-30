@@ -2,30 +2,54 @@
 \usepackage[utf8]{inputenc}
 \usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
 \usepackage{enumitem}
-\usepackage[sfdefault]{roboto} % Set font to Roboto
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+\setmainfont{Ubuntu}
 \setlength{\parindent}{0pt}
+
+% Define the color for the sections
+\definecolor{sectioncolor}{RGB}{0,0,255} % Change the RGB values for your preferred color
+\definecolor{myblue}{RGB}{70,130,180} % Define the color for the box. Change the RGB values to your preferred color.
+
+
+% Format the section titles
+\titleformat{\section}
+{\color{sectioncolor}\normalfont\Large\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{sectioncolor}} % format
+{\thesection} % label
+{1em} % sep
+{} % before-code
+[{\color{sectioncolor}\titlerule[0.8pt]}] % after-code
+
+
 
 \begin{document}
 
-\robotoslab
-\begin{center}
-    {\Large \textbf{ {{- name -}} }}
-\end{center}
-
-\roboto
-
-\begin{flushleft}
-    Email: {{- contact.email -}}
-    \\
-    LinkedIn: \texttt{ {{- contact.linkedin -}} }
-\end{flushleft}
+\noindent\colorbox{myblue}{ %
+    \parbox{\linewidth}{ %
+        \vskip 2\baselineskip % Add vertical space equivalent to 2 lines at the top of the box
+        \centering\color{white}{\Large \textbf{ {{- name -}} }} % Center the name and change its color to white
+        \vskip 0.5\baselineskip % Add vertical space equivalent to half a line between the name and the contact information
+        \centering\color{white}{\normalsize {{ contact.email -}} } % Center the email and change its color to white
+        \centering\color{white}{\normalsize \texttt{  {{ contact.linkedin -}} }} % Center the LinkedIn URL and change its color to white
+        \vskip 1.5\baselineskip % Add vertical space equivalent to 1.5 lines at the bottom of the box
+    }%
+}
 
 \section*{Skills}
+\begin{multicols}{3}
 \begin{itemize}[noitemsep,topsep=0pt]
     {% for skill in top_skills %}
     \item { {{- skill -}} }
     {% endfor %}
 \end{itemize}
+\end{multicols}
 
 \section*{Summary}
 { {{- summary -}} }
