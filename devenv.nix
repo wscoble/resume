@@ -30,30 +30,11 @@
         unzip tcolorbox.zip
         rm tcolorbox.zip
       fi
-      # if [[ ! -d environ ]]; then
-      #   wget https://mirrors.ctan.org/macros/latex/contrib/environ.zip
-      #   unzip environ.zip
-      #   rm environ.zip
-      #   pushd environ
-      #   latex environ.ins
-      #   popd
-      # fi
-      # if [[ ! -d trimspaces ]]; then
-      #   wget https://mirrors.ctan.org/macros/latex/contrib/trimspaces.zip
-      #   unzip trimspaces.zip
-      #   rm trimspaces.zip
-
-      #   if [[ ! -d pstool ]]; then
-      #     wget https://mirrors.ctan.org/macros/latex/contrib/pstool.zip
-      #     unzip pstool.zip
-      #     rm pstool.zip
-      #   fi
-      #   pushd trimspaces
-      #   ln -s ../pstool/pstool.tex
-      #   ln -s ../titlesec/titlesec.sty
-      #   latex trimspaces.ins
-      #   popd
-      # fi
+      if [[ ! -d fira ]]; then
+        wget https://mirrors.ctan.org/fonts/fira.zip
+        unzip fira.zip
+        rm fira.zip
+      fi
       popd
     '';
     
