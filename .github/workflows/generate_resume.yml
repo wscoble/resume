@@ -34,6 +34,10 @@ jobs:
           mv resume.docx "$RESUME_NAME".docx
           popd
 
+      - name: Get current version
+        id: get_version
+        run: echo "version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+
       - name: Tag commit for release
         id: version_increment
         uses: workflow/nix-shell-action@v3
@@ -41,13 +45,13 @@ jobs:
           packages: yq,coreutils
           script: |
             # Get the hash of the experience section in the current commit and the previous one
-            CURRENT_HASH=$(yq e '.experience' Resume/resume.yaml | sha256sum)
-            PREVIOUS_HASH=$(git show HEAD~1:Resume/resume.yaml | yq e '.experience' - | sha256sum)
-
+            CURRENT_HASH=$(yq -e '.experience' Resume/resume.yaml | sha256sum)
+            PREVIOUS_HASH=$(git show ${{ steps.get_version.outputs.version }}:Resume/resume.yaml | yq -e '.experience' - | sha256sum)
+            
             # Get the size of the experience list in the current commit and the previous one
             CURRENT_SIZE=$(yq e '.experience | length' Resume/resume.yaml)
-            PREVIOUS_SIZE=$(git show HEAD~1:Resume/resume.yaml | yq e '.experience | length' -)
-
+            PREVIOUS_SIZE=$(git show ${{ steps.get_version.outputs.version }}:Resume/resume.yaml | yq -e '.experience | length' -)
+            
             # Check the sizes and hashes to determine the version increment
             if [ "$CURRENT_SIZE" -ne "$PREVIOUS_SIZE" ]; then
               # If the size of the experience list has changed, increment the major version
@@ -60,10 +64,6 @@ jobs:
               echo "increment=patch" >> $GITHUB_OUTPUT
             fi
 
-      - name: Get current version
-        id: get_version
-        run: echo "version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-            
       - name: Increment version
         id: increment_version
         uses: actions/github-script@v5
