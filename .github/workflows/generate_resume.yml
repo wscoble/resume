@@ -68,13 +68,22 @@ jobs:
 
       - name: Increment version
         id: increment_version
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const semver = require('semver')
-            const version = '${{ steps.get_version.outputs.version }}'
-            const increment = '${{ steps.version_increment.outputs.increment }}'
-            return semver.inc(version, increment)
+        run: |
+          version=${{ steps.get_version.outputs.version }}
+          increment=${{ steps.version_increment.outputs.increment }}
+          IFS='.' read -ra VERSION_PARTS <<< "$version"
+          case $increment in
+            major)
+              echo "new_version=$((${VERSION_PARTS[0]} + 1)).0.0" >> $GITHUB_OUTPUT
+              ;;
+            minor)
+              echo "new_version=${VERSION_PARTS[0]}.$((${VERSION_PARTS[1]} + 1)).0" >> $GITHUB_OUTPUT
+              ;;
+            patch)
+              echo "new_version=${VERSION_PARTS[0]}.${VERSION_PARTS[1]}.$((${VERSION_PARTS[2]} + 1))" >> $GITHUB_OUTPUT
+              ;;
+          esac
+          
 
       - name: Tag commit for release
         run: |
