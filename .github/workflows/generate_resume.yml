@@ -2,13 +2,13 @@ name: Build and Release Resume
 
 on:
   push:
-    tags-ignore: 
-      - "*"
     paths:
       - Resume/resume.yaml
       - Resume/resume.j2
       - .github/workflows/generate_resume.yml
       - devenv.nix
+    tags-ignore:
+      - '*'
 
 env:
   RESUME_NAME: Scott\ Scoble\ Resume
