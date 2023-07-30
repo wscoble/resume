@@ -39,11 +39,9 @@
     '';
     
     build-resume.exec = ''
-      pushd $DEVENV_ROOT/Resume
       j2 resume.j2 resume.yaml -o resume.tex && \
       TEXINPUTS=".texmf//:" xelatex resume.tex && \
       pandoc -s resume.tex -o resume.docx 
-      popd
     '';
 
     next-tag.exec = ''
@@ -80,6 +78,12 @@
           echo "''${VERSION_PARTS[0]}.''${VERSION_PARTS[1]}.$((''${VERSION_PARTS[2]} + 1))"
           ;;
       esac
+    '';
+
+    clean.exec = ''
+      for d in $(cat .gitignore); do
+        rm -fr $d
+      done
     '';
   };
 }
