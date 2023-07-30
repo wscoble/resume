@@ -68,16 +68,16 @@
         increment="minor"
       fi
 
-      IFS='.' read -ra VERSION_PARTS <<< "$version"
+      IFS='.' read -ra VERSION_PARTS <<< "$CURRENT_TAG"
       case $increment in
         major)
-          echo "new_version=$((''${VERSION_PARTS[0]} + 1)).0.0"
+          echo "$((''${VERSION_PARTS[0]} + 1)).0.0"
           ;;
         minor)
-          echo "new_version=''${VERSION_PARTS[0]}.$((''${VERSION_PARTS[1]} + 1)).0"
+          echo "''${VERSION_PARTS[0]}.$((''${VERSION_PARTS[1]} + 1)).0"
           ;;
         patch)
-          echo "new_version=''${VERSION_PARTS[0]}.''${VERSION_PARTS[1]}.$((''${VERSION_PARTS[2]} + 1))"
+          echo "''${VERSION_PARTS[0]}.''${VERSION_PARTS[1]}.$((''${VERSION_PARTS[2]} + 1))"
           ;;
       esac
     '';
