@@ -1,12 +1,61 @@
 name: Scott Scoble
 location: Henderson, Nevada, United States
 contact:
-  email: punkdgeek@gmail.com
+  email: scott@scoble.me
   linkedin: www.linkedin.com/in/scott-scoble
-top_skills:
-  - Kubernetes
-  - Flask
-  - ZeroMQ
+skills:
+  technical_skills:
+    - Problem Solving and Pattern Recognition: Ability to draw on a deep well of knowledge and experience to solve new and unfamiliar problems.
+    - Application Composition: Skilled in composing application patterns into cohesive, targeted products.
+    - Business Logic Discovery and Refinement: Expertise in discovering and refining business logic, discerning the core product of a company.
+  leadership_and_management_skills:
+    - Team Management: Experience in managing teams, including hiring and firing responsibilities.
+    - Conflict Resolution: Skilled in resolving conflicts within teams and with clients.
+    - Mentorship: Peer leader in mentoring others on leadership, professional development, testing, software engineering, architecture, and design.
+    - Project Organization: Experience in organizing projects and ensuring alignment with goals and timelines.
+  communication_and_professional_development_skills:
+    - Effective Communication: Taken Fred Pryor classes on communication, enhancing the ability to convey ideas and collaborate with teams.
+    - Leadership Development: Experience in leadership roles, including training in management and leadership through Fred Pryor classes.
+product_familiarity:
+  programming_languages:
+    - JavaScript
+    - TypeScript
+    - Python
+    - Java
+    - Groovy
+    - Go
+  cloud_and_containerization:
+    - AWS
+    - Kubernetes
+  deployment_and_configuration_management:
+    - Helm
+    - Nix
+  continuous_integration_continuous_deployment:
+    - GitHub Actions
+    - Jenkins
+    - Drone
+  network_and_security:
+    - VPN
+  virtual_reality_and_collaboration_tools:
+    - Immersed VR
+    - Meta Workspaces
+  top_skills:
+    - Software Architecture
+    - Cloud Computing (AWS)
+    - Kubernetes
+    - CI/CD
+    - Team Leadership
+    - Problem Solving
+    - Project Management
+    - Business Analysis
+    - System Design
+    - DevOps
+    - Mentorship
+    - Communication
+    - Conflict Resolution
+    - Agile Methodology
+    - Secure Remote Access
+    - Working in VR
 summary: Greasing the wheels of development for over a decade through QA, CI/CD, DevOps, and Platform Engineering. Devout follower of Christ.
 experience:
   - company: b.well Connected Health
@@ -14,11 +63,15 @@ experience:
     start_date: December 2021
     end_date: Present
     duration: 1 year 8 months
-    summary: none
+    summary: >
+      As a Cloud Infrastructure Engineer, I have played a pivotal role in building and maintaining the company's technology infrastructure. My responsibilities have encompassed a wide range of areas, including service catalog development, tool creation, SRE responsibilities, network security, and principal engineer duties.
     highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
+      - Service Catalog Development: Initiated the building of a service catalog based on AWS Neptune, providing a unified view of all applications, deployments, environments, configurations, and pipelines.
+      - Coppertop Development Tool: Created a development tool called "coppertop" to configure codebases, unify CI/CD commands, provide generative templates for common patterns, and offer sandboxed tools for development.
+      - SRE Responsibilities: Managed dev/staging/production Kubernetes clusters, ensuring network security and seamless application deployment.
+      - Principal Engineer Duties: Acted as a Principal Engineer, focusing on design, architecture, and mentorship of both senior and junior developers.
+      - Hunt Groups Leadership: Led short-term "hunt groups" to address specific issues, develop Architectural Decision Records (ADRs), and create proofs of concept for solutions.
+
   - company: findhelp
     title: Principal Software Engineer
     start_date: July 2021
