@@ -39,23 +39,24 @@ product_familiarity:
   virtual_reality_and_collaboration_tools:
     - Immersed VR
     - Meta Workspaces
-  top_skills:
-    - Software Architecture
-    - Cloud Computing (AWS)
-    - Kubernetes
-    - CI/CD
-    - Team Leadership
-    - Problem Solving
-    - Project Management
-    - Business Analysis
-    - System Design
-    - DevOps
-    - Mentorship
-    - Communication
-    - Conflict Resolution
-    - Agile Methodology
-    - Secure Remote Access
-    - Working in VR
+top_skills:
+  - Software Architecture
+  - Cloud Computing (AWS)
+  - Kubernetes
+  - CI/CD
+  - Team Leadership
+  - Problem Solving
+  - Project Management
+  - Business Analysis
+  - System Design
+  - DevOps
+  - Mentorship
+  - Communication
+  - Conflict Resolution
+  - Agile Methodology
+  - Secure Remote Access
+  - Working in VR
+
 summary: Greasing the wheels of development for over a decade through QA, CI/CD, DevOps, and Platform Engineering. Devout follower of Christ.
 experience:
   - company: b.well Connected Health
