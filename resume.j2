@@ -27,8 +27,6 @@
 {} % before-code
 [{\color{sectioncolor}\titlerule[0.8pt]}] % after-code
 
-
-
 \begin{document}
 
 \noindent\colorbox{myblue}{ %
@@ -60,8 +58,8 @@
 \begin{itemize}[noitemsep,topsep=0pt]
     \item Position: {{ job.title }}
     \item Duration: {{ job.start_date }} - {{ job.end_date }}
-    {% if job.summary %}\item Description: {{ job.summary }}{% endif %}
-    {% if job.highlights %}\item Highlights:
+    {% if 'summary' in job %}\item Description: {{ job.summary }}{% endif %}
+    {% if 'highlights' in job %}\item Highlights:
     \begin{itemize}[noitemsep,topsep=0pt]
         {% for highlight in job.highlights %}
         \item {{ highlight }}
