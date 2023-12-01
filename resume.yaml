@@ -67,11 +67,11 @@ experience:
     summary: >
       I have become a temporal philanthropist during my time at B.Well Connected Health. The work I do directly impacts a large number of developers, making their time more focused on revenue generation.
     highlights:
-      - Service Catalog Development: Giving developers back an estimated 2 hours per week of time previously devoted to DevOps work associated with their services.
-      - Coppertop Development Tool: Evanglizing portable development environments and rapid onboarding via a common development platform, saving developers an estimated 2-5 hours per month on codebase-related troubleshooting and coordination.
-      - SRE Responsibilities: Managed dev/staging/production Kubernetes clusters, ensuring network security and seamless application deployment.
-      - Mentoring and Career Growth: I mentor developers and other SREs on a regular basis, providing career growth strategy and support.
-      - Hunt Groups Leadership: Led short-term "hunt groups" to address specific issues, develop Architectural Decision Records (ADRs), and create proofs of concept for solutions.
+      - "Service Catalog Development: Giving developers back an estimated 2 hours per week of time previously devoted to DevOps work associated with their services."
+      - "Coppertop Development Tool: Evanglizing portable development environments and rapid onboarding via a common development platform, saving developers an estimated 2-5 hours per month on codebase-related troubleshooting and coordination."
+      - "SRE Responsibilities: Managed dev/staging/production Kubernetes clusters, ensuring network security and seamless application deployment."
+      - "Mentoring and Career Growth: I mentor developers and other SREs on a regular basis, providing career growth strategy and support."
+      - "Hunt Groups Leadership: Led short-term hunt groups to address specific issues, develop Architectural Decision Records (ADRs), and create proofs of concept for solutions."
 
   - company: findhelp
     title: Principal Software Engineer
