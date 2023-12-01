@@ -59,18 +59,18 @@ top_skills:
 
 summary: Greasing the wheels of development for over a decade through QA, CI/CD, DevOps, and Platform Engineering. Devout follower of Christ.
 experience:
-  - company: b.well Connected Health
+  - company: B.Well Connected Health
     title: Cloud Infrastructure Engineer
     start_date: December 2021
     end_date: Present
     duration: 1 year 8 months
     summary: >
-      As a Cloud Infrastructure Engineer, I have played a pivotal role in building and maintaining the company's technology infrastructure. My responsibilities have encompassed a wide range of areas, including service catalog development, tool creation, SRE responsibilities, network security, and principal engineer duties.
+      I have become a temporal philanthropist during my time at B.Well Connected Health. The work I do directly impacts a large number of developers, making their time more focused on revenue generation.
     highlights:
-      - Service Catalog Development: Initiated the building of a service catalog based on AWS Neptune, providing a unified view of all applications, deployments, environments, configurations, and pipelines.
-      - Coppertop Development Tool: Created a development tool called "coppertop" to configure codebases, unify CI/CD commands, provide generative templates for common patterns, and offer sandboxed tools for development.
+      - Service Catalog Development: Giving developers back an estimated 2 hours per week of time previously devoted to DevOps work associated with their services.
+      - Coppertop Development Tool: Evanglizing portable development environments and rapid onboarding via a common development platform, saving developers an estimated 2-5 hours per month on codebase-related troubleshooting and coordination.
       - SRE Responsibilities: Managed dev/staging/production Kubernetes clusters, ensuring network security and seamless application deployment.
-      - Principal Engineer Duties: Acted as a Principal Engineer, focusing on design, architecture, and mentorship of both senior and junior developers.
+      - Mentoring and Career Growth: I mentor developers and other SREs on a regular basis, providing career growth strategy and support.
       - Hunt Groups Leadership: Led short-term "hunt groups" to address specific issues, develop Architectural Decision Records (ADRs), and create proofs of concept for solutions.
 
   - company: findhelp
@@ -78,78 +78,65 @@ experience:
     start_date: July 2021
     end_date: December 2021
     duration: 6 months
-    summary: none
+    summary: >
+      The work I did at findhelp was focused on facilitating rapid development against external integrations. It was said that without my contribution in this area, we would not have been able to integrate successfully with Epic.
     highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
+      - Built Epic FHIR integration mock to generate constant load for real-time debugging of FHIR integrations using Locust and Flask.
+      - Because testing data was generated in real-time, there was a rapid deploy, test, analyze flow that saved the development teams weeks of debugging and back-and-forth with Epic.
   - company: JBS Custom Software Solutions
     title: Senior Software Developer
     start_date: September 2020
     end_date: December 2021
     duration: 1 year 4 months
-    summary: none
+    summary: >
+      Staff augmentation for College Board.
     highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
+      - Delivered a Storybook collection of UX components that gave Product Owners the ability to try components out which saved hours of time in planning meetings trying to decypher acceptance criteria.
+      - Delivered all ticket work on time and usually with strong tests.
   - company: Surge – a Catalyte company
     title: Senior Software Developer
     start_date: July 2015
     end_date: June 2020
     duration: 5 years
-    summary: none
+    summary: >
+      Staff augmentation and project work for some well known companies like Discovery Education and Motortrend On Demand.
     highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
+      - Reduced AWS development resource costs by 75% by optimizing deployment and tear down of cloud environments.
+      - Trained a team of 5 manual testers using Geb and Spock to write automated tests. One team member shined brightly and with my recommendation, was promoted to Lead Test Engineer.
+      - Reduced delivery time for a product from 3 months to 2 weeks by training staff on Agile, CI/CD (with Bamboo), and trunk-based development. We implemented best practices with small tickets, acceptance criteria, and grooming triggers.
+      - Angular to ReactJS migration that reduced LoC by 30% and improved Lighthouse scoring from the 20s to the 80s.
   - company: Barclaycard
     title: Software Developer, AVP
     start_date: May 2015
     end_date: June 2015
     duration: 2 months
-    summary: none
+    summary: >
+      Vendor integration project.
     highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
+      - Championed TDD methodology, but failed to gain traction.
+      - Designed a CQRS testing methodology based on spans from code instrumentation, allowing accurate black box testing of distributed systems.
   - company: Raster Media
     title: Lead Developer
     start_date: May 2014
     end_date: May 2015
     duration: 1 year 1 month
-    summary: none
+    summary: >
+      Lead team of talented engineers to bring clients' ideas to market.
     highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
+      - Built a modular memory test for the Lou Ruvo Center, part of the Cleveland Clinic, as part of the Keep Memory Alive initiative, allowing for easy future adjustment as testing methodologies change.
+      - Created RESTful APIs for mobile games and other UXes using Spring, Laravel, and Flask.
   - company: PartnerWeekly, L.L.C.
     title: QA Manager
     start_date: April 2012
     end_date: April 2014
     duration: 2 years 1 month
-    summary: none
-    highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
   - company: DataX,Ltd.
     title: Test Engineer
     start_date: August 2011
     end_date: April 2012
     duration: 9 months
-    summary: none
-    highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
   - company: InsureMonkey
     title: Lead Developer
     start_date: October 2009
     end_date: June 2011
     duration: 1 year 9 months
-    summary: none
-    highlights:
-      - Highlight 1
-      - Highlight 2
-      - Highlight 3
