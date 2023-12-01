@@ -60,13 +60,13 @@
 \begin{itemize}[noitemsep,topsep=0pt]
     \item Position: {{ job.title }}
     \item Duration: {{ job.start_date }} - {{ job.end_date }}
-    \item Description: {{ job.summary }}
-    \item Highlights:
+    {% if job.summary %}\item Description: {{ job.summary }}{% endif %}
+    {% if job.highlights %}\item Highlights:
     \begin{itemize}[noitemsep,topsep=0pt]
         {% for highlight in job.highlights %}
         \item {{ highlight }}
         {% endfor %}
-    \end{itemize}
+    \end{itemize}{% endif %}
 \end{itemize}
 {% endfor %}
 
