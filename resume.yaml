@@ -41,15 +41,15 @@ product_familiarity:
     - Meta Workspaces
 top_skills:
   - Software Architecture
-  - Cloud Computing (AWS)
-  - Kubernetes
-  - CI/CD
+  - AWS (EC2, RDS, Lambda, etc.)
+  - Kubernetes (EKS and related)
+  - CI/CD (Github Actions, etc.)
   - Team Leadership
   - Problem Solving
   - Project Management
   - Business Analysis
   - System Design
-  - DevOps
+  - DevOps (Terraform, CloudFormation)
   - Mentorship
   - Communication
   - Conflict Resolution
