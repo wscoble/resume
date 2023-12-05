@@ -25,7 +25,7 @@ product_familiarity:
     - Groovy
     - Go
   cloud_and_containerization:
-    - AWS
+    - "AWS: S3, EC2, EKS, VPC, RDS, Lambda, CloudFront, EventBridge, SQS, SNS, MSK, etc."
     - Kubernetes
   deployment_and_configuration_management:
     - Helm
